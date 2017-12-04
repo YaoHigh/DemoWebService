@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试WebService</title>
+</head>
+<body>
+<h2>测试WebService</h2>
+
+    <script src="/js/jquery-1.10.2.js"></script>
+    
+    <script>
+        $(function () {
+		 $.ajax({ 
+				type: "POST", 
+				url: "http://localhost:1204/Demo.asmx/ParaMethod",
+				dataType: "json", 
+				contentType: "application/json; charset=utf-8", 
+				data: "{'paraDTO':{'NAME':'张十三','SEX':'男'}}",
+				success: function(json) 
+				{ 
+				   console.log(eval(json));
+				}, 
+				error:function(xhr,textStatus){
+					console.log('错误')
+					console.log(xhr)
+					console.log(textStatus)
+				},   
+			});
+        });
+    </script>
+</body>
+</html>
